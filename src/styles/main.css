@@ -6,6 +6,8 @@
 }
 
 body {
+  /* font-family: ; */
+  overflow-x: hidden;
   background: #222831;
   color: #CDD0CB;
 }

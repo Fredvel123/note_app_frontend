@@ -3,23 +3,29 @@ import React, { useState } from 'react'
 import { FormStyles } from '../../styles/signup/form';
 // components
 import Inputs from './Inputs';
+import Response from './Response';
 
 function Forms() {
   const [name, setName] = useState({value: '', isValid: null})
   const [email, setEmail] = useState({value: '', isValid: null})
   const [password, setPassword] = useState({value: '', isValid: null})
   const [validPasswd, setValidPasswd] = useState({value: '', isValid: null})
+  const [transition, setTransition] = useState(false);
 
   // onsubmit
   const handlerSubmit = e => {
     e.preventDefault();
     if(name.isValid & email.isValid & password.isValid & validPasswd.isValid) {
       createUser();
+      setTransition(true);
     }else {
-      console.log('something is bad');
+      setResponse({
+        message: 'something is bad'
+      })
+      setTransition(true);
     }
   }
-  
+  const [response, setResponse] = useState();  
   const link = 'https://notes-app-fredd.herokuapp.com/api/users/signup';
   const createUser = async () => {
     const user = await fetch(link, {
@@ -34,7 +40,7 @@ function Forms() {
       })
     })
     const res = await user.json();
-    console.log(res);
+    setResponse(res);
   }
 
   const regularExpressions = {
@@ -89,6 +95,7 @@ function Forms() {
           callback={validationPasswd} />
       </div>
       <button>Create account</button>
+      <Response state={response} transition={transition} setTrans={setTransition}  />
     </FormStyles>
   )
 }

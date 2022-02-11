@@ -5,6 +5,7 @@ import { SignUpStyles } from '../../styles/signup/index';
 import Header from './Header';
 import SignUpPage from './SignUpPage';
 import Forms from './Forms';
+// import Response from './Response';
 
 function SignUp() {
   return(

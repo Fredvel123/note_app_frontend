@@ -3,11 +3,13 @@
   padding: 0;
   text-decoration: none;
   list-style: none;
+  /* overflow-y: auto; */
 }
 
+
 body {
-  /* font-family: ; */
   overflow-x: hidden;
+  /* font-family: ; */
   background: #222831;
   color: #CDD0CB;
 }

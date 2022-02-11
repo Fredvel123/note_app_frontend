@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 // colors and fonts
-import colors from '../tools/colors.json';
+// import colors from '../tools/colors.json';
 import fonts from '../tools/fonts.json';
 
 export const FormStyles = styled.form`
@@ -30,6 +30,33 @@ export const FormStyles = styled.form`
       background: #bd1baf;
     }
   }
+  @media screen and (max-width: 1100px) {
+    width: 40%;
+  }
+  @media screen and (max-width: 1000px) {
+    width: 45%;
+  }
+  @media screen and (max-width: 885px) {
+    width: 55%;
+  }
+  @media screen and (max-width: 730px) {
+    width: 60%;
+  }
+  @media screen and (max-width: 575px) {
+    width: 85%;
+  }
+  @media screen and (max-width: 475px) {
+    .password {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between ;
+    input {
+      margin-right: 28px;
+      width: 95%;
+    }
+  } 
+  }
+
 `
 
 export const Label = styled.label`
@@ -61,5 +88,12 @@ export const Label = styled.label`
       color: #ffffff8b;
     }
   }
+  @media screen and (max-width: 515px) {
+    span {
+      font-size: 13px;
+    }
+    input {
+      font-size: 13px;
+    } 
   }
 `

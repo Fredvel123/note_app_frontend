@@ -13,10 +13,28 @@ function Forms() {
   // onsubmit
   const handlerSubmit = e => {
     e.preventDefault();
-    console.log(name);
-    console.log(email);
-    console.log(password);
-    console.log(validPasswd);
+    if(name.isValid & email.isValid & password.isValid & validPasswd.isValid) {
+      createUser();
+    }else {
+      console.log('something is bad');
+    }
+  }
+  
+  const link = 'https://notes-app-fredd.herokuapp.com/api/users/signup';
+  const createUser = async () => {
+    const user = await fetch(link, {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: name.value,
+        email: email.value,
+        password: password.value
+      })
+    })
+    const res = await user.json();
+    console.log(res);
   }
 
   const regularExpressions = {

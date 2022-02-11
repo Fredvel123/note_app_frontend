@@ -19,18 +19,25 @@ export const SignUpStyles = styled.div`
   flex-direction: column;
   /* justify-content: center; */
   align-content: center;
+  @media screen and (max-width: 500px) {
+    background:  linear-gradient(to right, #222831, #9198e51c), url(${image}); 
+  }
 `
 
 export const HeaderStyles = styled.header`
-  width: 100%;
-  height: 17vh;
-  display: grid;
-  grid-template-columns: 25% 5% 10%;
+  /* width: 100%; */
+  /* background: red; */
+  height: 12vh;
+  /* display: grid;
+  grid-template-columns: 25% 5% 10%; */
+  display: flex;
+
   align-items: center;   
   padding: 0 5%;
   .icon {
     display: flex;
     align-items: center;
+    margin-right: 10%;
     h2 {
       font-family: ${fonts.letter3};
       font-weight: 300;
@@ -38,11 +45,22 @@ export const HeaderStyles = styled.header`
   }
   a {
     font-family: ${fonts.letter1};
-    margin-left: 5%;
+    margin-left: 3%;
     color: ${colors.gray};
     transition: .3s;
     &:hover {
       color: white;
+    }
+  }
+  @media screen and (max-width: 900px) {
+    padding: 0 4%;
+    padding-top: 2vh;
+    display: flex;
+    a {
+      color: white;
+    }
+    .icon {
+      margin-right: 0;
     }
   }
 `

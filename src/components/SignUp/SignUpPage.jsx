@@ -8,7 +8,7 @@ function SignUpPage() {
       <div className='header'>
         <h3 className='capitalize' >Start for free</h3>
         <h2>Create a New Account.</h2>
-        <h3>You already have an account ? <a href="https://www.google.com" target='_blank' >Log In</a>  </h3>
+        <h3>You already have an account ? <a href="/login" >Log In</a>  </h3>
       </div>
     </Inputs>
   )

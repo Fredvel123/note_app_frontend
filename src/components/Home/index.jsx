@@ -1,8 +1,16 @@
 import React from 'react'
+// components
+import User from './User';
+import LogOut from './LogOut';
+import Notes from './Notes';
 
 function Home() {
   return (
-    <div>Home</div>
+    <div>
+      <User />
+      <LogOut />
+      <Notes />
+    </div>
   )
 }
 

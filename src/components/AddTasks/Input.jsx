@@ -14,6 +14,7 @@ function Input({ placeholder, title, state, setState }) {
         <Inputs
           id={title}
           type="text"
+          required
           placeholder={placeholder}
           onChange={handlerChange}
           />

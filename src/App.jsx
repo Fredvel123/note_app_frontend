@@ -5,6 +5,8 @@ import SignUp from './components/SignUp';
 import LogIn from './components/LogIn';
 import Error404 from './components/Error404';
 import AddTasks from './components/AddTasks';
+import NoteById from './components/Home/NoteById';
+import EditTask from './components/EdistTask';
 // react router
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -32,6 +34,8 @@ function App() {
         <Route path='signup' element={<SignUp />} />
         <Route path='login' element={<LogIn />} />
         <Route path='add' element={auth.auth ?  <AddTasks /> :<Error404 /> } />
+        <Route path=':id' element={auth.auth ?  <NoteById /> :<Error404 /> } />
+        <Route path='edit/:id' element={auth.auth ?  <EditTask /> :<Error404 /> } />
       </Routes>            
     </BrowserRouter>
   );

@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 // redux
 import { useSelector } from 'react-redux';
+// styled components
+import { Form, Title } from '../../styles/editTasks';
 
 function EditTask() {
   const id = useParams().id;
@@ -62,8 +64,8 @@ function EditTask() {
   }
   return(
     <>
-      <h2>Edit note</h2>
-      <form action="" onSubmit={handlerSubmit} >
+      <Title>Edit note</Title>
+      <Form action="" onSubmit={handlerSubmit} >
         <label htmlFor="title">
           <span>title:</span>
           <input
@@ -86,8 +88,7 @@ function EditTask() {
         {/* {message ?
           h
         : <h3>{message.message}</h3> } */}
-      </form>
-          <button onClick={() => console.log(message) } >ifofa</button>
+      </Form>
     </>
   )
 }

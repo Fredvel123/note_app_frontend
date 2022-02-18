@@ -5,6 +5,8 @@ import { useSelector } from 'react-redux';
 import { LinkOutlined, EditOutlined, DeleteOutlined } from '@ant-design/icons'
 // react router
 import { Link } from 'react-router-dom';
+// components
+import ModalWindow from './ModalWindow';
 
 
 function Notes() {
@@ -40,6 +42,25 @@ function Notes() {
   useEffect(() => {
     getNotesByUser();
   }, [getUserInfo])
+  // open modal window
+  const [data, setData] = useState({open: false}); 
+  const openModalWindow = userData => {
+    setData({open: true, id: userData._id, title: userData.title});
+    // console.log(data);
+  }
+  // remove note
+  const removeNoteById = async id => {
+    const link = `https://notes-app-fredd.herokuapp.com/api/notes/remove/${id}`;
+    const note = await fetch(link, {
+      method: 'DELETE',
+      headers: {
+        'access-token': auth.token
+      }      
+    });
+    const res = await note.json();
+    // console.log(res); 
+    setData({open: false});
+  }
 
   return (
     <>
@@ -53,7 +74,7 @@ function Notes() {
           <Link to={`edit/${item._id}`}>
             <EditOutlined />
           </Link>
-          <DeleteOutlined />
+          <DeleteOutlined onClick={() => openModalWindow(item)} />
           <Link to={`${item._id}`} >
             <LinkOutlined />
           </Link>
@@ -61,9 +82,10 @@ function Notes() {
         ))
       : <h3>You have no notes yet!</h3> }
 
-      <button onClick={() => console.log(notes) } >user</button>
+      {/* <button onClick={() => console.log(notes) } >user</button> */}
+    <ModalWindow data={data} userId={data.id} setOpen={setData} callback={removeNoteById} />
     </>
   )
 }
 
-export default Notes
+export default Notes;

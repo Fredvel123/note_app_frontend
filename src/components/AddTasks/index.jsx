@@ -4,6 +4,7 @@ import Input from './Input';
 // redux
 import { useSelector } from 'react-redux';
 import { Form, Mes, Title } from '../../styles/addTasks';
+import GetOut from '../Home/GetOut';
 
 function AddTasks() {
   // redux
@@ -71,6 +72,7 @@ function AddTasks() {
         <Mes>Your note was added successfully</Mes>
       : <Mes>Write your note here please </Mes> }
       {/* <button onClick={() => console.log(resNote) }  >dasd</button> */}
+      <GetOut />
     </>
   )
 }

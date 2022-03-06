@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from 'react'
+// react redux
 import { useSelector } from 'react-redux';
+// router
+import { Link } from 'react-router-dom';
+// styled components
+import { AddTaskButton, UserStyled } from '../../styles/Home/user';
+// components
+import LogOut from './LogOut';
 
 
 function User() {
@@ -15,20 +22,25 @@ function User() {
     })
     const res = await user.json();
     setuser(res);
-  } 
+  }
   useEffect(() => {
     getUserInfo();
   }, [] )
 
   return (
-    <div>
+    <>
       {user ?
-        <div>
+        <UserStyled>
           <h4>{user.name}</h4>
-          <h4>{user.email}</h4>
-        </div>
+          <div className='buttons' >
+            <Link to="/add" >
+               <AddTaskButton />
+            </Link>
+            <LogOut />
+          </div>
+        </UserStyled>
         : null}
-    </div>
+    </>
   )
 }
 

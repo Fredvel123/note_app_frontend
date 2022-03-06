@@ -2,6 +2,7 @@ import React from 'react'
 // redux
 import { useDispatch } from 'react-redux'
 import { setAuth } from '../../redux/slices/auth';
+import { LogOutButton, LogOutIcon } from '../../styles/Home/user';
 
 function LogOut() {
   const dispatch = useDispatch();
@@ -16,9 +17,9 @@ function LogOut() {
 
   return (
     <>
-      <button onClick={logOut}  >
-        Log Out
-      </button>
+      <LogOutButton onClick={logOut}  >
+        <LogOutIcon />
+      </LogOutButton>
     </>
   )
 }

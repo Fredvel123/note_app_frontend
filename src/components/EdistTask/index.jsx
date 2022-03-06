@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 // styled components
 import { Form, Title } from '../../styles/editTasks';
+import GetOut from '../Home/GetOut';
 
 function EditTask() {
   const id = useParams().id;
@@ -44,7 +45,7 @@ function EditTask() {
       setmessage({message: 'Edit Something in your note'})
     }
   }
-  const [message, setmessage] = useState();
+  const [message, setmessage] = useState(null);
   const updateNote = async () => {
     const link = `https://notes-app-fredd.herokuapp.com/api/notes/update/${id}`
     const noteUpdate = await fetch(link, {
@@ -85,9 +86,10 @@ function EditTask() {
             onChange={handlerDescription} />
         </label>
         <button>send indo</button>
-        {/* {message ?
-          h
-        : <h3>{message.message}</h3> } */}
+        {message === null ?
+          <h3>Please, edit your note here</h3>
+        : <h3>Your note was edited successfully</h3> }
+      <GetOut />
       </Form>
     </>
   )

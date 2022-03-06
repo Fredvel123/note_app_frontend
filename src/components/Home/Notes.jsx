@@ -7,6 +7,8 @@ import { LinkOutlined, EditOutlined, DeleteOutlined } from '@ant-design/icons'
 import { Link } from 'react-router-dom';
 // components
 import ModalWindow from './ModalWindow';
+// styled components
+import { Message, NotesStyles, LinkButton, EditButton, RemoveButton, Title } from '../../styles/Home/notes';
 
 
 function Notes() {
@@ -61,26 +63,25 @@ function Notes() {
     // console.log(res); 
     setData({open: false});
   }
-
   return (
     <>
-      <h2>Here will be the notes. </h2>
-
+      <Title>Your Notes </Title>
       {notes.length > 0 ?
         notes.map(item => (
-          <div key={item._id} >
-          <h2>{item.title}</h2>
-          {/* <h3>{item.description}</h3> */}
-          <Link to={`edit/${item._id}`}>
-            <EditOutlined />
-          </Link>
-          <DeleteOutlined onClick={() => openModalWindow(item)} />
-          <Link to={`${item._id}`} >
-            <LinkOutlined />
-          </Link>
-        </div>
+          <NotesStyles key={item._id} >
+            <h2>{item.title}</h2>
+            <div className='links'>
+              <Link to={`edit/${item._id}`}>
+                <EditButton />
+              </Link>
+              <RemoveButton onClick={() => openModalWindow(item)} />
+              <Link to={`${item._id}`} >
+                <LinkButton />
+              </Link>
+            </div>
+          </NotesStyles>
         ))
-      : <h3>You have no notes yet!</h3> }
+      : <Message >You have no notes yet! add one <Link to='/add' >here</Link>  </Message> }
 
       {/* <button onClick={() => console.log(notes) } >user</button> */}
     <ModalWindow data={data} userId={data.id} setOpen={setData} callback={removeNoteById} />

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 // styled components
 import { Icons, ResponseStyles } from '../../styles/signup/response'
 
@@ -9,7 +9,7 @@ function Response({ state, transition, setTrans }) {
   return (
     <ResponseStyles state={transition}  >
       <Icons onClick={closeWindow} />
-      <h2>{state ? state.message  : 'it is not something'  }</h2>
+      <h2>{state ? state.message  : 'it is not something'}</h2>
     </ResponseStyles>
   )
 }

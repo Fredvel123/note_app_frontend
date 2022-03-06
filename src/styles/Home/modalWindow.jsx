@@ -10,16 +10,18 @@ export const ModalWindowStyles = styled.div`
   flex-direction: column;
   transform: ${({open}) => open ? 'translateX(0)': 'translateX(-250%)' };
   position: fixed;
-  height: 80vh;
-  width: 85%;
-  top: 10vh;
-  left: 7.5%;
+  height: 55vh;
+  width: 50%;
+  top: 22.5vh;
+  left: 25%;
   h3 {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
   }
   @media screen and (max-width: 520px) {
     font-size: 12px;
+    width: 90%;
+    left: 5%;
   }
   .buttons {
     margin-top: 5vh;

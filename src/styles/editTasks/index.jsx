@@ -9,6 +9,14 @@ export const Form = styled.form`
   width: 85%;
   margin-left: 7.5%;
   flex-direction: column;
+  margin-top: 8vh ;
+  h3 {
+    font-family: ${fonts.letter1};
+    margin-top: 3vh;
+    text-align: center;
+    font-size: 18px;
+    color: ${colors.gray};
+  }
   label {
     display: flex;
     flex-direction: column;
